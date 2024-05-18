@@ -155,6 +155,9 @@ async def stats_command(m: UpdateNewMessage):
 
 
 # ----------------------------------------------------------------------------------------------------
+@bot.on(events.NewMessage(pattern="/plans$", incoming=True, outgoing=False))
+async def plans_command_wrapper(event):
+    await plans_command(event)
 
 
 @bot.on(events.NewMessage(pattern="/start$", incoming=True, outgoing=False))
