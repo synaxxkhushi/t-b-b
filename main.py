@@ -407,7 +407,7 @@ async def handle_message(m: Message):
 File Name: `{data['file_name']}`
 Size: **{data["size"]}**
 
-@DextiNBots
+@synaxnetwork
 """,
             supports_streaming=True,
             spoiler=True,
@@ -430,7 +430,7 @@ Size: **{data["size"]}**
 File Name: `{data['file_name']}`
 Size: **{data["size"]}**
 
-@DextiNBots
+@synaxnetwork
 """,
             progress_callback=progress_bar,
             thumb=thumbnail if thumbnail else None,
