@@ -193,9 +193,9 @@ async def start(m: UpdateNewMessage):
         reply_text,
         buttons=[
             [
-                Button.url("Update Channel", "https://t.me/synaxnetwork"),
+                Button.url("Uᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ 🌱", "https://t.me/synaxnetwork"),
                 Button.url(
-                    "Update Bots", "https://t.me/synaxbots"
+                    "Bᴏᴛs ᴄʜᴀɴɴᴇʟ 🌱", "https://t.me/synaxbots"
                 ),
             ]
         ],
@@ -256,9 +256,9 @@ Available commands:
         parse_mode="markdown",
         buttons=[
             [
-                Button.url("Updates", "https://t.me/synaxnetwork"),
+                Button.url("Uᴘᴅᴀᴛᴇ 🔰", "https://t.me/synaxnetwork"),
                 Button.url(
-                    "Bots", "https://t.me/synaxbots"
+                    "Bᴏᴛs 🔰", "https://t.me/synaxbots"
                 ),
             ]
         ],
