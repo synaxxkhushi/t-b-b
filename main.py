@@ -245,7 +245,7 @@ Available commands:
 /start - Start using the bot.
 /help - Show this help message.
 
-@DextiNBots
+@synaxbots
 """
     link_preview = (False,)
     await m.reply(
