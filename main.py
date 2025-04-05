@@ -172,6 +172,8 @@ async def start(m: UpdateNewMessage):
 **Hello, [{first_name}](tg://user?id={m.sender.id})!**  I am a bot to download videos from Terabox.
 
 **Just send me the Terabox link** and I'll start downloading it for you.
+
+**Buy Premium For Remove Ads /plans**
 """
     if not db.sismember("users", str(m.sender_id)):
         db.sadd("users", str(m.sender_id))
