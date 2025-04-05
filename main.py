@@ -304,7 +304,7 @@ async def handle_message(m: Message):
     if not check_if:
         return await m.reply("Please join @synaxbots then send me the link again.")
     is_spam = db.get(m.sender_id)
-    if is_spam and m.sender_id not in [6231550362]:
+    if is_spam and m.sender_id not in ADMINS:
         return await m.reply("You are spamming. Please wait a 1 minute and try again.")
     hm = await m.reply("Sending you the media wait...")
     count = db.get(f"check_{m.sender_id}")
