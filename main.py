@@ -305,7 +305,7 @@ async def handle_message(m: Message):
         return await m.reply("You are spamming. Please wait a 1 minute and try again.")
     hm = await m.reply("Sending you the media wait...")
     count = db.get(f"check_{m.sender_id}")
-    if count and int(count) > 15:
+    if count and int(count) > 1000:
         return await hm.edit(
             "You are limited now. Please come back after 2 hours or use another account."
         )
