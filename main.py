@@ -360,7 +360,7 @@ async def handle_message(m: Message):
         return await hm.edit(
             f"Sorry! File is not supported for now. I can download only .mp4, .mkv, .webm, .ts, .mov, .hevc, .png, .jpg, .jpeg files."
         )
-    if int(data["sizebytes"]) > 524288000 and m.sender_id not in [6231550362]:
+    if int(data["sizebytes"]) > 524288000 and m.sender_id not in ADMINS:
         return await hm.edit(
             f"Sorry! File is too big. I can download only 500MB and this file is of {data['size']} ."
         )
