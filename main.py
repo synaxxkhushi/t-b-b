@@ -122,12 +122,12 @@ async def unban_user(m: UpdateNewMessage):
 async def stats_command(m: UpdateNewMessage):
     if m.is_group or m.is_channel:
         return
-    check_if = await is_user_on_chat(bot, f"@UR_RISHU_143", m.peer_id)
+    check_if = await is_user_on_chat(bot, f"@a4bhi", m.peer_id)
     if not check_if:
-        return await m.reply(f"Please join @UR_RISHU_143 then send me the link again.")
+        return await m.reply(f"Please join @a4bhi then send me the link again.")
     check_if = await is_user_on_chat(bot, f"@synaxxgiveway", m.peer_id)
     if not check_if:
-        return await m.reply(f"Please join @UR_RISHU_143 then send me the link again.")
+        return await m.reply(f"Please join @synaxxgiveway then send me the link again.")
 
     uptime = convert_seconds(time.time() - bot_start_time)
     message_count = get_message_count()
@@ -186,9 +186,9 @@ async def start(m: UpdateNewMessage):
         )
         db.sadd("new_users", str(user_id))
 
-    check_if = await is_user_on_chat(bot, f"@UR_RISHU_143", m.peer_id)
+    check_if = await is_user_on_chat(bot, f"@a4bhi", m.peer_id)
     if not check_if:
-        return await m.reply(f"Please join @UR_RISHU_143 then send me the link again.")
+        return await m.reply(f"Please join @a4bhi then send me the link again.")
     check_if = await is_user_on_chat(bot, f"@synaxxgiveway", m.peer_id)
     if not check_if:
         return await m.reply(f"Please join @synaxxgiveway then send me the link again.")
@@ -239,9 +239,9 @@ async def broadcast(m: UpdateNewMessage):
 async def help_command(m: UpdateNewMessage):
     if m.is_group or m.is_channel:
         return
-    check_if = await is_user_on_chat(bot, f"@UR_RISHU_143", m.peer_id)
+    check_if = await is_user_on_chat(bot, f"@a4bhi", m.peer_id)
     if not check_if:
-        return await m.reply(f"Please join @UR_RISHU_143 then send me the link again.")
+        return await m.reply(f"Please join @a4bhi then send me the link again.")
     check_if = await is_user_on_chat(bot, f"@synaxxgiveway", m.peer_id)
     if not check_if:
         return await m.reply(f"Please join @synaxxgiveway then send me the link again.")
@@ -297,9 +297,9 @@ async def handle_message(m: Message):
     url = get_urls_from_string(m.text)
     if not url:
         return await m.reply("Please enter a valid url.")
-    check_if = await is_user_on_chat(bot, "@UR_RISHU_143", m.peer_id)
+    check_if = await is_user_on_chat(bot, "@a4bhi", m.peer_id)
     if not check_if:
-        return await m.reply("Please join @UR_RISHU_143  then send me the link again.")
+        return await m.reply("Please join @a4bhi  then send me the link again.")
     check_if = await is_user_on_chat(bot, "@synaxxgiveway", m.peer_id)
     if not check_if:
         return await m.reply("Please join @synaxxgiveway then send me the link again.")
