@@ -122,12 +122,12 @@ async def unban_user(m: UpdateNewMessage):
 async def stats_command(m: UpdateNewMessage):
     if m.is_group or m.is_channel:
         return
-    check_if = await is_user_on_chat(bot, f"@synaxnetwork", m.peer_id)
+    check_if = await is_user_on_chat(bot, f"@UR_RISHU_143", m.peer_id)
     if not check_if:
-        return await m.reply(f"Please join @synaxnetwork then send me the link again.")
-    check_if = await is_user_on_chat(bot, f"@synaxbots", m.peer_id)
+        return await m.reply(f"Please join @UR_RISHU_143 then send me the link again.")
+    check_if = await is_user_on_chat(bot, f"@synaxxgiveway", m.peer_id)
     if not check_if:
-        return await m.reply(f"Please join @synaxbots then send me the link again.")
+        return await m.reply(f"Please join @UR_RISHU_143 then send me the link again.")
 
     uptime = convert_seconds(time.time() - bot_start_time)
     message_count = get_message_count()
@@ -186,19 +186,19 @@ async def start(m: UpdateNewMessage):
         )
         db.sadd("new_users", str(user_id))
 
-    check_if = await is_user_on_chat(bot, f"@synaxnetwork", m.peer_id)
+    check_if = await is_user_on_chat(bot, f"@UR_RISHU_143", m.peer_id)
     if not check_if:
-        return await m.reply(f"Please join @synaxnetwork then send me the link again.")
-    check_if = await is_user_on_chat(bot, f"@synaxbots", m.peer_id)
+        return await m.reply(f"Please join @UR_RISHU_143 then send me the link again.")
+    check_if = await is_user_on_chat(bot, f"@synaxxgiveway", m.peer_id)
     if not check_if:
-        return await m.reply(f"Please join @synaxbots then send me the link again.")
+        return await m.reply(f"Please join @synaxxgiveway then send me the link again.")
     await m.reply(
         reply_text,
         buttons=[
             [
-                Button.url("Uᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ 🌱", "https://t.me/synaxnetwork"),
+                Button.url("Uᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ 🌱", "https://t.me/UR_RISHU_143"),
                 Button.url(
-                    "Bᴏᴛs ᴄʜᴀɴɴᴇʟ 🌱", "https://t.me/synaxbots"
+                    "Bᴏᴛs ᴄʜᴀɴɴᴇʟ 🌱", "https://t.me/synaxxgiveway"
                 ),
             ]
         ],
@@ -239,19 +239,19 @@ async def broadcast(m: UpdateNewMessage):
 async def help_command(m: UpdateNewMessage):
     if m.is_group or m.is_channel:
         return
-    check_if = await is_user_on_chat(bot, f"@synaxnetwork", m.peer_id)
+    check_if = await is_user_on_chat(bot, f"@UR_RISHU_143", m.peer_id)
     if not check_if:
-        return await m.reply(f"Please join @synaxnetwork then send me the link again.")
-    check_if = await is_user_on_chat(bot, f"@synaxbots", m.peer_id)
+        return await m.reply(f"Please join @UR_RISHU_143 then send me the link again.")
+    check_if = await is_user_on_chat(bot, f"@synaxxgiveway", m.peer_id)
     if not check_if:
-        return await m.reply(f"Please join @synaxbots then send me the link again.")
+        return await m.reply(f"Please join @synaxxgiveway then send me the link again.")
     help_text = """
 Available commands:
 
 /start - Start using the bot.
 /help - Show this help message.
 
-@synaxbots
+@UR_RISHU_143
 """
     link_preview = (False,)
     await m.reply(
@@ -259,9 +259,9 @@ Available commands:
         parse_mode="markdown",
         buttons=[
             [
-                Button.url("Uᴘᴅᴀᴛᴇ 🔰", "https://t.me/synaxnetwork"),
+                Button.url("Uᴘᴅᴀᴛᴇ 🔰", "https://t.me/UR_RISHU_143"),
                 Button.url(
-                    "Bᴏᴛs 🔰", "https://t.me/synaxbots"
+                    "Bᴏᴛs 🔰", "https://t.me/synaxxgiveway"
                 ),
             ]
         ],
@@ -297,15 +297,15 @@ async def handle_message(m: Message):
     url = get_urls_from_string(m.text)
     if not url:
         return await m.reply("Please enter a valid url.")
-    check_if = await is_user_on_chat(bot, "@synaxnetwork", m.peer_id)
+    check_if = await is_user_on_chat(bot, "@UR_RISHU_143", m.peer_id)
     if not check_if:
-        return await m.reply("Please join @synaxnetwork  then send me the link again.")
-    check_if = await is_user_on_chat(bot, "@synaxbots", m.peer_id)
+        return await m.reply("Please join @UR_RISHU_143  then send me the link again.")
+    check_if = await is_user_on_chat(bot, "@synaxxgiveway", m.peer_id)
     if not check_if:
-        return await m.reply("Please join @synaxbots then send me the link again.")
+        return await m.reply("Please join @synaxxgiveway then send me the link again.")
     is_spam = db.get(m.sender_id)
     if is_spam and m.sender_id not in ADMINS:
-        return await m.reply("You are spamming. Please wait a 1 minute and try again.")
+        return await m.reply("You are spamming. Please wait a 10 sec and try again.")
     hm = await m.reply("Sending you the media wait...")
     count = db.get(f"check_{m.sender_id}")
     if count and int(count) > 1000:
@@ -334,7 +334,7 @@ async def handle_message(m: Message):
                 with_my_score=True,
             )
         )
-        db.set(m.sender_id, time.monotonic(), ex=60)
+        db.set(m.sender_id, time.monotonic(), ex=10)
         db.set(
             f"check_{m.sender_id}",
             int(count) + 1 if count else 1,
@@ -346,7 +346,7 @@ async def handle_message(m: Message):
     data = get_data(url)
     if not data:
         return await hm.edit("Sorry! API is dead or maybe your link is broken.")
-    db.set(m.sender_id, time.monotonic(), ex=60)
+    db.set(m.sender_id, time.monotonic(), ex=10)
     if (
         not data["file_name"].endswith(".mp4")
         and not data["file_name"].endswith(".mkv")
@@ -413,7 +413,7 @@ async def handle_message(m: Message):
 File Name: `{data['file_name']}`
 Size: **{data["size"]}**
 
-@synaxnetwork
+@synaxxgiveway
 """,
             supports_streaming=True,
             spoiler=True,
@@ -436,7 +436,7 @@ Size: **{data["size"]}**
 File Name: `{data['file_name']}`
 Size: **{data["size"]}**
 
-@synaxnetwork
+@synaxxgiveway
 """,
             progress_callback=progress_bar,
             thumb=thumbnail if thumbnail else None,
@@ -479,7 +479,7 @@ Size: **{data["size"]}**
                 with_my_score=True,
             )
         )
-        db.set(m.sender_id, time.monotonic(), ex=60)
+        db.set(m.sender_id, time.monotonic(), ex=10)
         db.set(
             f"check_{m.sender_id}",
             int(count) + 1 if count else 1,
@@ -490,5 +490,5 @@ Size: **{data["size"]}**
 bot.start(bot_token=BOT_TOKEN)
 print("Bot started!")
 print(f"This bot is connected to {BOT_USERNAME}.")
-print("This bot is deployed by @synaxnetwork kindly join this channel for more updates.")
+print("This bot is deployed by @synaxxgiveway kindly join this channel for more updates.")
 bot.run_until_disconnected()
