@@ -124,9 +124,9 @@ async def stats_command(m: UpdateNewMessage):
     check_if = await is_user_on_chat(bot, f"@synaxxgiveway", m.peer_id)
     if not check_if:
         return await m.reply(f"Please join @synaxxgiveway then send me the link again.")
-    check_if = await is_user_on_chat(bot, f"@a4bhi", m.peer_id)
+    check_if = await is_user_on_chat(bot, f"@UR_RISHU_143", m.peer_id)
     if not check_if:
-        return await m.reply(f"Please join @a4bhi then send me the link again.")
+        return await m.reply(f"Please join @UR_RISHU_143 then send me the link again.")
 
     uptime = convert_seconds(time.time() - bot_start_time)
     message_count = get_message_count()
@@ -183,16 +183,16 @@ async def start(m: UpdateNewMessage):
     check_if = await is_user_on_chat(bot, f"@synaxxgiveway", m.peer_id)
     if not check_if:
         return await m.reply(f"Please join @synaxxgiveway then send me the link again.")
-    check_if = await is_user_on_chat(bot, f"@a4bhi", m.peer_id)
+    check_if = await is_user_on_chat(bot, f"@UR_RISHU_143", m.peer_id)
     if not check_if:
-        return await m.reply(f"Please join @a4bhi then send me the link again.")
+        return await m.reply(f"Please join @UR_RISHU_143 then send me the link again.")
     await m.reply(
         reply_text,
         buttons=[
             [
-                Button.url("Update Channel", "https://t.me/DextiNBots"),
+                Button.url("✦ ʙᴏᴛs ✦", "https://t.me/ur_rishu_143"),
                 Button.url(
-                    "Repo", "https://github.com/TheDextiN/Terabox-Downloader-Bot"
+                    "✦ ɢɪᴠᴇᴀᴡᴀʏ ✦", "https://t.me/synaxxgiveway"
                 ),
             ]
         ],
@@ -236,9 +236,9 @@ async def help_command(m: UpdateNewMessage):
     check_if = await is_user_on_chat(bot, f"@synaxxgiveway", m.peer_id)
     if not check_if:
         return await m.reply(f"Please join @synaxxgiveway then send me the link again.")
-    check_if = await is_user_on_chat(bot, f"@a4bhi", m.peer_id)
+    check_if = await is_user_on_chat(bot, f"@UR_RISHU_143", m.peer_id)
     if not check_if:
-        return await m.reply(f"Please join @a4bhi then send me the link again.")
+        return await m.reply(f"Please join @UR_RISHU_143 then send me the link again.")
     help_text = """
 Available commands:
 
@@ -253,9 +253,9 @@ Available commands:
         parse_mode="markdown",
         buttons=[
             [
-                Button.url("Updates", "https://t.me/synaxxgiveway"),
+                Button.url("✦ ʙᴏᴛs ✦", "https://t.me/ur_rishu_143"),
                 Button.url(
-                    "Repo", "https://github.com/TheDextiN/Terabox-Downloader-Bot"
+                    "✦ ɢɪᴠᴇᴀᴡᴀʏ ✦", "https://t.me/synaxxgiveway"
                 ),
             ]
         ],
@@ -294,15 +294,15 @@ async def handle_message(m: Message):
     check_if = await is_user_on_chat(bot, "@synaxxgiveway", m.peer_id)
     if not check_if:
         return await m.reply("Please join @synaxxgiveway  then send me the link again.")
-    check_if = await is_user_on_chat(bot, "@a4bhi", m.peer_id)
+    check_if = await is_user_on_chat(bot, "@UR_RISHU_143", m.peer_id)
     if not check_if:
-        return await m.reply("Please join @a4bhi then send me the link again.")
+        return await m.reply("Please join @UR_RISHU_143 then send me the link again.")
     is_spam = db.get(m.sender_id)
     if is_spam and m.sender_id not in [7998441787]:
-        return await m.reply("You are spamming. Please wait a 1 minute and try again.")
+        return await m.reply("You are spamming. Please wait a 10 sec and try again.")
     hm = await m.reply("Sending you the media wait...")
     count = db.get(f"check_{m.sender_id}")
-    if count and int(count) > 15:
+    if count and int(count) > 1000:
         return await hm.edit(
             "You are limited now. Please come back after 2 hours or use another account."
         )
@@ -328,7 +328,7 @@ async def handle_message(m: Message):
                 with_my_score=True,
             )
         )
-        db.set(m.sender_id, time.monotonic(), ex=60)
+        db.set(m.sender_id, time.monotonic(), ex=10)
         db.set(
             f"check_{m.sender_id}",
             int(count) + 1 if count else 1,
@@ -340,7 +340,7 @@ async def handle_message(m: Message):
     data = get_data(url)
     if not data:
         return await hm.edit("Sorry! API is dead or maybe your link is broken.")
-    db.set(m.sender_id, time.monotonic(), ex=60)
+    db.set(m.sender_id, time.monotonic(), ex=10)
     if (
         not data["file_name"].endswith(".mp4")
         and not data["file_name"].endswith(".mkv")
@@ -407,7 +407,7 @@ async def handle_message(m: Message):
 File Name: `{data['file_name']}`
 Size: **{data["size"]}**
 
-@DextiNBots
+@a4bhi
 """,
             supports_streaming=True,
             spoiler=True,
@@ -430,7 +430,7 @@ Size: **{data["size"]}**
 File Name: `{data['file_name']}`
 Size: **{data["size"]}**
 
-@DextiNBots
+@a4bhi
 """,
             progress_callback=progress_bar,
             thumb=thumbnail if thumbnail else None,
@@ -473,7 +473,7 @@ Size: **{data["size"]}**
                 with_my_score=True,
             )
         )
-        db.set(m.sender_id, time.monotonic(), ex=60)
+        db.set(m.sender_id, time.monotonic(), ex=10)
         db.set(
             f"check_{m.sender_id}",
             int(count) + 1 if count else 1,
@@ -484,5 +484,5 @@ Size: **{data["size"]}**
 bot.start(bot_token=BOT_TOKEN)
 print("Bot started!")
 print(f"This bot is connected to {BOT_USERNAME}.")
-print("This bot is deployed by @DextiNBots kindly join this channel for more updates.")
+print("This bot is deployed by @a4bhi kindly join this channel for more updates.")
 bot.run_until_disconnected()
